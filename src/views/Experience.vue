@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h2 class="heading3">自己紹介</h2>
+    <h2 class="heading3">業務経歴</h2>
   </div>
 </template>
 
