@@ -47,7 +47,7 @@ width:20%;
 
 #contents {
 float:left;
-width:80%;
+width:79%;
 }
 
 footer {
