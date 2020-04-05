@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Header from '@/components/organsms/Header'
+import Header from '@/components/molecules/Header'
 import Sidenavi from '@/components/organsms/Sidenavi'
 
 export default {
@@ -26,6 +26,10 @@ export default {
   components:{
     Header,
     Sidenavi
+  },
+
+  mounted: function(){
+    document.title = this.$store.getters.getTitle
   }
 }
 </script>

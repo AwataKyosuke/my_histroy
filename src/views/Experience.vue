@@ -1,14 +1,23 @@
 <template>
   <div class="about">
-    <h2 class="heading3">業務経歴</h2>
+    <SectionHeader title="業務経歴" />
   </div>
 </template>
 
-<style scoped>
-.heading3 {
-  padding-left: 0.5em;
-  font-size: 1.5em;
-  color: #333;
-  border-left: 4px solid #00b5ad;
+<script>
+import SectionHeader from '@/components/atoms/SectionHeader'
+
+export default {
+  components: {
+    SectionHeader
+  },
+
+  mounted: function(){
+    this.$store.commit('changeTitle', '業務経歴')
+    document.title = this.$store.getters.getTitle
+  }
 }
+</script>
+
+<style scoped>
 </style>

@@ -1,11 +1,11 @@
 <template>
   <div id="nav">
-    <header class="header-5">
+    <header class="header">
       <div class="header-inner">
         <div class="logo">
           <router-link @click.native="selectedChange(0)" to="/"><img src="@/assets/logo.png" /></router-link>
         </div>
-        <h4>ブログタイトルをここにいれる</h4>
+        <h3 class="header-title">クソザコナメクジエンジニアの備忘録</h3>
         <nav class="header-nav">
           <ul class="header-nav-list">
             <router-link class="header-nav-item" v-bind:class="{ select: getSelectedIndex === 0 }" @click.native="selectedChange(0)" to="/">ホーム</router-link>
@@ -43,7 +43,7 @@ export default {
 
 <style scoped>
 
-.header-5 {
+.header {
   box-sizing: border-box;
   width: 100%;
 }
@@ -62,6 +62,7 @@ export default {
 }
 
 .header-nav-list {
+  margin-top: 8%;
   display: inline-block;
 }
 
@@ -84,7 +85,14 @@ export default {
 }
 
 .logo img {
+  margin-top: 30%;
   width: 40px;
+}
+
+.header-title {
+  margin: 0 3%;
+  font-weight: bold;
+  background: linear-gradient(transparent 75%, #ffb5ad 75%);
 }
 
 @media screen and (max-width: 480px) {
