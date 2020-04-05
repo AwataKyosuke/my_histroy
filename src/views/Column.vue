@@ -1,66 +1,35 @@
 <template>
-  <div class="about">
+
+  <div>
+
     <SectionHeader title="コラム" />
+
     <div class="search-box">
+
       <h3 class="search-title">カテゴリ</h3>
       <ul>
-        <li><router-link to="">test1</router-link></li>
-        <li><router-link to="">test2</router-link></li>
-        <li><router-link to="">test3</router-link></li>
-        <li><router-link to="">test1</router-link></li>
-        <li><router-link to="">test2</router-link></li>
-        <li><router-link to="">test3</router-link></li>
-        <li><router-link to="">test1</router-link></li>
-        <li><router-link to="">test2</router-link></li>
-        <li><router-link to="">test3</router-link></li>
-        <li><router-link to="">test1</router-link></li>
-        <li><router-link to="">test2</router-link></li>
-        <li><router-link to="">test3</router-link></li>
-        <li><router-link to="">test1</router-link></li>
-        <li><router-link to="">test2</router-link></li>
-        <li><router-link to="">test3</router-link></li>
-        <li><router-link to="">test1</router-link></li>
-        <li><router-link to="">test2</router-link></li>
-        <li><router-link to="">test3</router-link></li>
-        <li><router-link to="">test1</router-link></li>
-        <li><router-link to="">test2</router-link></li>
-        <li><router-link to="">test3</router-link></li>
-        <li><router-link to="">test1</router-link></li>
-        <li><router-link to="">test2</router-link></li>
-        <li><router-link to="">test3</router-link></li>
+        <li v-for="category in categories" :key="category.id">
+          <router-link to="">{{ category.name }}</router-link>
+        </li>
       </ul>
+
       <h3 class="search-title">タグ</h3>
       <ul>
-        <li><router-link to="">test1</router-link></li>
-        <li><router-link to="">test2</router-link></li>
-        <li><router-link to="">test3</router-link></li>
-        <li><router-link to="">test1</router-link></li>
-        <li><router-link to="">test2</router-link></li>
-        <li><router-link to="">test3</router-link></li>
-        <li><router-link to="">test1</router-link></li>
-        <li><router-link to="">test2</router-link></li>
-        <li><router-link to="">test3</router-link></li>
-        <li><router-link to="">test1</router-link></li>
-        <li><router-link to="">test2</router-link></li>
-        <li><router-link to="">test3</router-link></li>
-        <li><router-link to="">test1</router-link></li>
-        <li><router-link to="">test2</router-link></li>
-        <li><router-link to="">test3</router-link></li>
-        <li><router-link to="">test1</router-link></li>
-        <li><router-link to="">test2</router-link></li>
-        <li><router-link to="">test3</router-link></li>
-        <li><router-link to="">test1</router-link></li>
-        <li><router-link to="">test2</router-link></li>
-        <li><router-link to="">test3</router-link></li>
-        <li><router-link to="">test1</router-link></li>
-        <li><router-link to="">test2</router-link></li>
-        <li><router-link to="">test3</router-link></li>
+        <li v-for="tag in tags" :key="tag.id">
+          <router-link to="">{{ tag.name }}</router-link>
+        </li>
       </ul>
+
       <h3 class="search-title">検索</h3>
-      <input type="text" class="search-input" placeholder="キーワードを入力" />
+      <input type="text" class="search-input" placeholder="キーワードを入力" v-model="keyword" />
+      <p>{{ keyword }}</p>
+
     </div>
+
     <ItemList />
+
   </div>
+
 </template>
 
 <script>
@@ -68,6 +37,26 @@ import SectionHeader from '@/components/atoms/SectionHeader'
 import ItemList from '@/components/organsms/ItemList'
 
 export default {
+
+  data () {
+    return {
+
+      categories: [
+        { name: 'Web開発' },
+        { name: 'クラウドサービス' }
+      ],
+
+      tags: [
+        { name: 'Vue.js' },
+        { name: 'AWS' },
+        { name: 'Azure' }
+      ],
+
+      keyword: ''
+
+    }
+  },
+
   components:{
     SectionHeader,
     ItemList

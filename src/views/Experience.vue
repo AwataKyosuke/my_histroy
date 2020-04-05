@@ -1,7 +1,11 @@
 <template>
-  <div class="about">
+
+  <div>
+
     <SectionHeader title="業務経歴" />
+
   </div>
+
 </template>
 
 <script>

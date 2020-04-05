@@ -1,7 +1,11 @@
 <template>
-  <div class="about">
+
+  <div>
+
     <SectionHeader title="キャリアパス" />
+
   </div>
+
 </template>
 
 <script>

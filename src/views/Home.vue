@@ -1,14 +1,15 @@
 <template>
-  <div class="home">
-    <SectionHeader title="ようこそ" />
 
-    <p></p>
+  <div>
+
+    <SectionHeader title="ようこそ" />
 
     <SectionHeader title="最新コラム" />
 
     <ItemList />
 
   </div>
+
 </template>
 
 <script>

@@ -1,7 +1,11 @@
 <template>
-  <div class="about">
+
+  <div>
+
     <SectionHeader title="自己紹介" />
+
   </div>
+
 </template>
 
 <script>

@@ -1,19 +1,27 @@
 <template>
+
   <div id="wrap">
+
     <div id="app">
 
       <Header />
 
       <div id="sidenavi">
+
         <Sidenavi />
+
       </div>
 
       <div id="contents">
+
         <router-view/>
+
       </div>
 
     </div>
+
   </div>
+
 </template>
 
 <script>
