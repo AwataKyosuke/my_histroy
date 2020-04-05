@@ -3,7 +3,7 @@
     <header class="header">
       <div class="header-inner">
         <div class="logo">
-          <router-link @click.native="selectedChange(0)" to="/"><img src="@/assets/logo.png" /></router-link>
+          <router-link @click.native="selectedChange(0)" to="/"><img src="@/assets/namekuji.png" /></router-link>
         </div>
         <h3 class="header-title">クソザコナメクジエンジニアの備忘録</h3>
         <nav class="header-nav">
