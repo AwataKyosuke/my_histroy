@@ -8,15 +8,13 @@
 import Item from '@/components/molecules/Item'
 
 export default {
+  name: 'ItemList',
+
   components: {
     Item
   },
 
-  data (){
-    return {
-      articles: this.$store.state.articles
-    }
-  }
+  props: ['articles']
 }
 </script>
 
