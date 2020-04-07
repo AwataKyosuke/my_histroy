@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <Item />
+    <Item v-for="article in articles" :key="article.id" v-bind:article=article />
   </div>
 </template>
 
@@ -10,6 +10,12 @@ import Item from '@/components/molecules/Item'
 export default {
   components: {
     Item
+  },
+
+  data (){
+    return {
+      articles: this.$store.state.articles
+    }
   }
 }
 </script>

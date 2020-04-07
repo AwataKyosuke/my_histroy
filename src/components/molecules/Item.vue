@@ -1,40 +1,23 @@
 <template>
-  <div>
-    <div class="item" v-for="article in articles" :key="article.id">
-      <h3 class="item-title"><router-link to="/">{{ article.title }}</router-link></h3>
-      <p>
-        <font-awesome-icon :icon="['fas', 'calendar-alt']" class="item-date-icon" />
-        <span class="item-date">{{ article.date }}</span>
+  <div class="item">
+    <h3 class="item-title"><router-link to="/">{{ article.title }}</router-link></h3>
+    <p>
+      <font-awesome-icon :icon="['fas', 'calendar-alt']" class="item-date-icon" />
+      <span class="item-date">{{ article.date }}</span>
 
-        <font-awesome-icon :icon="['fas', 'folder-open']" class="item-categories-icon" />
-        <span class="item-categories" v-for="category in article.categories" :key="category.id">{{ category.name }}</span>
+      <font-awesome-icon :icon="['fas', 'folder-open']" class="item-categories-icon" />
+      <span class="item-categories" v-for="category in article.categories" :key="category.id">{{ category.name }}</span>
 
-        <font-awesome-icon :icon="['fas', 'tags']" class="item-tags-icon" />
-        <span class="item-tags" v-for="tag in article.tags" :key="tag.id">{{ tag.name }}</span></p>
+      <font-awesome-icon :icon="['fas', 'tags']" class="item-tags-icon" />
+      <span class="item-tags" v-for="tag in article.tags" :key="tag.id">{{ tag.name }}</span></p>
     </div>
-  </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return{
-      articles: [
-        {
-          title: 'SPAを作ってみた',
-          date: '2020/04/01',
-          categories: [ { name: 'Web開発' } ],
-          tags: [ { name: 'Vue.js' } ]
-        },
-        {
-          title: 'AWSにデプロイしてみた',
-          date: '2020/04/02',
-          categories: [ { name: 'クラウドサービス' } ],
-          tags: [ { name: 'AWS' } ]
-        }
-      ]
-    }
-  }
+  name: 'Item',
+
+  props: [ 'article' ]
 }
 </script>
 

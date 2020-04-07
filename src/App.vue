@@ -37,7 +37,7 @@ export default {
   },
 
   mounted: function(){
-    document.title = this.$store.getters.getTitle
+    document.title = this.$store.state.title
   }
 }
 </script>

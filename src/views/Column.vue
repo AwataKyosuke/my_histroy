@@ -41,18 +41,11 @@ export default {
   data () {
     return {
 
-      categories: [
-        { name: 'Web開発' },
-        { name: 'クラウドサービス' }
-      ],
+      categories: this.$store.state.categories,
 
-      tags: [
-        { name: 'Vue.js' },
-        { name: 'AWS' },
-        { name: 'Azure' }
-      ],
+      tags: this.$store.state.tags,
 
-      keyword: ''
+      keyword: this.$store.state.keyword
 
     }
   },
@@ -62,9 +55,19 @@ export default {
     ItemList
   },
 
+  computed: {
+    filterColumn: function(){
+      const articles = [];
+
+      this.articles
+
+      return articles
+    }
+  },
+
   mounted: function(){
     this.$store.commit('changeTitle', 'コラム')
-    document.title = this.$store.getters.getTitle
+    document.title = this.$store.state.title
   }
 }
 </script>

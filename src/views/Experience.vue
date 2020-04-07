@@ -18,7 +18,7 @@ export default {
 
   mounted: function(){
     this.$store.commit('changeTitle', '業務経歴')
-    document.title = this.$store.getters.getTitle
+    document.title = this.$store.state.title
   }
 }
 </script>
