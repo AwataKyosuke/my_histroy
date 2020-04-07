@@ -17,7 +17,7 @@
 
     </div>
 
-    <ItemList v-bind:articles="articles" />
+    <ItemList v-bind:articles="filteredColumn" />
 
   </div>
 
@@ -36,7 +36,7 @@ export default {
       categories: this.$store.state.categories,
       tags: this.$store.state.tags,
       articles: this.$store.state.articles,
-      keyword: this.$store.state.keyword,
+      keyword: '',
     }
   },
 
@@ -45,6 +45,26 @@ export default {
     CategoryList,
     TagList,
     ItemList,
+  },
+
+  computed: {
+    filteredColumn: function () {
+      return this.filterArticles()
+    }
+  },
+
+  methods: {
+    filterArticles: function() {
+      const inputKeyword = this.keyword
+      const filtered = [];
+      for(const i in this.articles) {
+        const article = this.articles[i];
+        if(article.title.indexOf(inputKeyword) !== -1) {
+            filtered.push(article);
+        }
+    }
+    return filtered;
+    }
   },
 
   mounted: function(){

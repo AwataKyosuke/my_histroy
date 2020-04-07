@@ -26,7 +26,5 @@ export default {
     { name: 'Vue.js' },
     { name: 'AWS' },
     { name: 'Azure' }
-  ],
-
-  keyword: ''
+  ]
 }
