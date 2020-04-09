@@ -7,7 +7,7 @@ export default {
       title: 'SPAを作ってみた',
       date: '2020/04/01',
       categories: [ 1 ],
-      tags: [ 1 ]
+      tags: [ 1,2 ]
     },
     {
       title: 'AWSにデプロイしてみた',
@@ -22,7 +22,7 @@ export default {
       title: 'SPAを作ってみた',
       date: '2020/04/01',
       categories: [ 1 ],
-      tags: [ 1 ]
+      tags: [ 1,2 ]
     },
     {
       title: 'AWSにデプロイしてみた',

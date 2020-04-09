@@ -6,10 +6,10 @@
       <span class="item-date">{{ article.date }}</span>
 
       <font-awesome-icon :icon="['fas', 'folder-open']" class="item-categories-icon" />
-      <span class="item-categories" v-for="category in article.categories" :key="category.id">{{ category.name }}</span>
+      <span class="item-categories" v-for="category in article.categories" :key="category.id">{{ getCategoryName(category) }}</span>
 
       <font-awesome-icon :icon="['fas', 'tags']" class="item-tags-icon" />
-      <span class="item-tags" v-for="tag in article.tags" :key="tag.id">{{ tag.name }}</span></p>
+      <span class="item-tags" v-for="tag in article.tags" :key="tag.id">{{ getTagName(tag) }}</span></p>
     </div>
 </template>
 
@@ -17,7 +17,17 @@
 export default {
   name: 'Item',
 
-  props: [ 'article' ]
+  props: [ 'article' ],
+
+  methods:{
+    getTagName(tagId){
+      return this.$store.state.tags.filter((x => x.id === tagId))[0].name + ' / '
+    },
+
+    getCategoryName(categoryId){
+      return this.$store.state.categories.filter((x => x.id === categoryId))[0].name + ' / '
+    }
+  }
 }
 </script>
 
