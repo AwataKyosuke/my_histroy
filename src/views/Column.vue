@@ -13,11 +13,11 @@
       <TagList v-bind:tags="tags" />
 
       <h3 class="search-title">検索</h3>
-      <input type="text" class="search-input" placeholder="キーワードを入力" v-model="keyword" />
+      <input type="text" class="search-input" placeholder="キーワードを入力" v-model="filterKeyword" />
 
     </div>
 
-    <ItemList v-bind:articles="filteredColumn" />
+    <ItemList v-bind:articles="validArticles" />
 
   </div>
 
@@ -35,8 +35,8 @@ export default {
     return {
       categories: this.$store.state.categories,
       tags: this.$store.state.tags,
-      articles: this.$store.state.articles,
-      keyword: '',
+      articles: this.$store.getters.filterArticles,
+      keyword: this.$store.state.keyword,
     }
   },
 
@@ -48,23 +48,19 @@ export default {
   },
 
   computed: {
-    filteredColumn: function () {
-      return this.filterArticles()
-    }
-  },
+    validArticles: function () {
+      return this.$store.state.filteredArticles
+    },
 
-  methods: {
-    filterArticles: function() {
-      const inputKeyword = this.keyword
-      const filtered = [];
-      for(const i in this.articles) {
-        const article = this.articles[i];
-        if(article.title.indexOf(inputKeyword) !== -1) {
-            filtered.push(article);
-        }
-    }
-    return filtered;
-    }
+    filterKeyword: {
+      get() {
+        return this.$store.getters.filterKeyword
+      },
+      set(value) {
+        this.$store.commit('filterKeyword', value)
+        this.$store.commit('filteringArticle')
+      }
+    },
   },
 
   mounted: function(){

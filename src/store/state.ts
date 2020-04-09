@@ -6,25 +6,43 @@ export default {
     {
       title: 'SPAを作ってみた',
       date: '2020/04/01',
-      categories: [ { name: 'Web開発' } ],
-      tags: [ { name: 'Vue.js' } ]
+      categories: [ 1 ],
+      tags: [ 1 ]
     },
     {
       title: 'AWSにデプロイしてみた',
       date: '2020/04/02',
-      categories: [ { name: 'クラウドサービス' } ],
-      tags: [ { name: 'AWS' } ]
+      categories: [ 2 ],
+      tags: [ 2 ]
+    }
+  ],
+
+  filteredArticles: [
+    {
+      title: 'SPAを作ってみた',
+      date: '2020/04/01',
+      categories: [ 1 ],
+      tags: [ 1 ]
+    },
+    {
+      title: 'AWSにデプロイしてみた',
+      date: '2020/04/02',
+      categories: [ 2 ],
+      tags: [ 2 ]
     }
   ],
 
   categories: [
-    { name: 'Web開発' },
-    { name: 'クラウドサービス' }
+    { id: 1, name: 'Web開発', selected: false },
+    { id: 2, name: 'クラウドサービス', selected: false },
+    { id: 3, name: 'ネットワーク', selected: false }
   ],
 
   tags: [
-    { name: 'Vue.js' },
-    { name: 'AWS' },
-    { name: 'Azure' }
-  ]
+    { id: 1, name: 'Vue.js', selected: false },
+    { id: 2, name: 'AWS', selected: false },
+    { id: 3, name: 'Azure', selected: false }
+  ],
+
+  filterKeyword: ''
 }

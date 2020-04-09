@@ -1,6 +1,6 @@
 <template>
   <li>
-    <router-link to="">{{ tag.name }}</router-link>
+    <router-link to="" @click.native="selected" class="own-tag" v-bind:class="{ select: tag.selected }">{{ tag.name }}</router-link>
   </li>
 </template>
 
@@ -8,7 +8,14 @@
 export default {
   name: 'Tag',
 
-  props: [ 'tag' ]
+  props: [ 'tag' ],
+
+  methods:{
+    selected(){
+      this.$store.commit('tagSelected', this.tag.name)
+      this.$store.commit('filteringArticle')
+    }
+  }
 }
 </script>
 
@@ -20,13 +27,17 @@ export default {
   margin-right: 1%;
 }
 
-.search-box ul li a {
+.own-tag {
   color: darkgray;
   text-decoration: none;
 }
 
 .search-box ul li a:hover {
   color: #58b4ff;
+}
+
+.select {
+  color: #000;
 }
 
 </style>
