@@ -2,7 +2,7 @@
 
   <div>
 
-    <SectionHeader title="コラム" />
+    <SectionHeader title="備忘録" />
 
     <div class="search-box">
 
@@ -17,7 +17,7 @@
 
     </div>
 
-    <ItemList v-bind:articles="validArticles" />
+    <ArticleList v-bind:articles="validArticles" />
 
   </div>
 
@@ -27,7 +27,7 @@
 import SectionHeader from '@/components/atoms/SectionHeader'
 import CategoryList from '@/components/organsms/CategoryList'
 import TagList from '@/components/organsms/TagList'
-import ItemList from '@/components/organsms/ItemList'
+import ArticleList from '@/components/organsms/ArticleList'
 
 export default {
 
@@ -44,7 +44,7 @@ export default {
     SectionHeader,
     CategoryList,
     TagList,
-    ItemList,
+    ArticleList,
   },
 
   computed: {
@@ -64,7 +64,7 @@ export default {
   },
 
   mounted: function(){
-    this.$store.commit('changeTitle', 'コラム')
+    this.$store.commit('changeTitle', '備忘録')
     document.title = this.$store.state.title
   }
 }

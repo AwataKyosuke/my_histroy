@@ -1,8 +1,8 @@
 import Home from '@/views/Home.vue'
 import About from '@/views/About.vue'
-import Experience from '@/views/Experience'
-import Career from '@/views/Career'
-import Column from '@/views/Column'
+import Experience from '@/views/Experience.vue'
+import Products from '@/views/Products.vue'
+import Articles from '@/views/Articles.vue'
 
 export default [
   {
@@ -21,13 +21,13 @@ export default [
     component: Experience
   },
   {
-    path: '/career',
-    name: 'Career',
-    component: Career
+    path: '/products',
+    name: 'Products',
+    component: Products
   },
   {
-    path: '/column',
-    name: 'Column',
-    component: Column
+    path: '/articles',
+    name: 'Articles',
+    component: Articles
   }
 ]

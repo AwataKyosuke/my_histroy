@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Item from '@/components/molecules/Item'
+import Item from '@/components/molecules/Article'
 
 export default {
   name: 'ItemList',

@@ -2,7 +2,7 @@
 
   <div>
 
-    <SectionHeader title="キャリアパス" />
+    <SectionHeader title="成果物" />
 
   </div>
 
@@ -17,7 +17,7 @@ export default {
   },
 
   mounted: function(){
-    this.$store.commit('changeTitle', 'キャリアパス')
+    this.$store.commit('changeTitle', '成果物')
     document.title = this.$store.state.title
   }
 }

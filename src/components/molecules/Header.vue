@@ -11,8 +11,8 @@
             <router-link class="header-nav-item" v-bind:class="{ select: getSelectedIndex === 0 }" @click.native="selectedChange(0)" to="/">ホーム</router-link>
             <router-link class="header-nav-item" v-bind:class="{ select: getSelectedIndex === 1 }" @click.native="selectedChange(1)" to="/about">自己紹介</router-link>
             <router-link class="header-nav-item" v-bind:class="{ select: getSelectedIndex === 2 }" @click.native="selectedChange(2)" to="/experience">業務経歴</router-link>
-            <router-link class="header-nav-item" v-bind:class="{ select: getSelectedIndex === 3 }" @click.native="selectedChange(3)" to="/career">キャリアパス</router-link>
-            <router-link class="header-nav-item" v-bind:class="{ select: getSelectedIndex === 4 }" @click.native="selectedChange(4)" to="/column">コラム</router-link>
+            <router-link class="header-nav-item" v-bind:class="{ select: getSelectedIndex === 3 }" @click.native="selectedChange(3)" to="/products">成果物</router-link>
+            <router-link class="header-nav-item" v-bind:class="{ select: getSelectedIndex === 4 }" @click.native="selectedChange(4)" to="/articles">備忘録</router-link>
           </ul>
         </nav>
 

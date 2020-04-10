@@ -7,7 +7,7 @@
 
     <SectionHeader title="最新コラム" />
 
-    <ItemList v-bind:articles="articles" />
+    <ArticleList v-bind:articles="articles" />
 
   </div>
 
@@ -15,7 +15,7 @@
 
 <script>
 import SectionHeader from '@/components/atoms/SectionHeader'
-import ItemList from '@/components/organsms/ItemList'
+import ArticleList from '@/components/organsms/ArticleList'
 
 export default {
 
@@ -27,7 +27,7 @@ export default {
 
   components: {
     SectionHeader,
-    ItemList
+    ArticleList
   },
 
   mounted: function(){
