@@ -3,16 +3,16 @@
     <header class="header">
       <div class="header-inner">
         <div class="logo">
-          <router-link @click.native="selectedChange(0)" to="/"><img src="@/assets/namekuji.png" /></router-link>
+          <router-link @click.native="selectedChange(0)" :to="{name: 'Home'}"><img src="@/assets/namekuji.png" /></router-link>
         </div>
         <h3 class="header-title">クソザコナメクジエンジニアの備忘録</h3>
         <nav class="header-nav">
           <ul class="header-nav-list">
-            <router-link class="header-nav-item" v-bind:class="{ select: getSelectedIndex === 0 }" @click.native="selectedChange(0)" to="/">ホーム</router-link>
-            <router-link class="header-nav-item" v-bind:class="{ select: getSelectedIndex === 1 }" @click.native="selectedChange(1)" to="/about">自己紹介</router-link>
-            <router-link class="header-nav-item" v-bind:class="{ select: getSelectedIndex === 2 }" @click.native="selectedChange(2)" to="/experience">業務経歴</router-link>
-            <router-link class="header-nav-item" v-bind:class="{ select: getSelectedIndex === 3 }" @click.native="selectedChange(3)" to="/products">成果物</router-link>
-            <router-link class="header-nav-item" v-bind:class="{ select: getSelectedIndex === 4 }" @click.native="selectedChange(4)" to="/articles">備忘録</router-link>
+            <router-link class="header-nav-item" v-bind:class="{ select: getSelectedIndex === 0 }" @click.native="selectedChange(0)" :to="{name: 'Home'}">ホーム</router-link>
+            <router-link class="header-nav-item" v-bind:class="{ select: getSelectedIndex === 1 }" @click.native="selectedChange(1)" :to="{name: 'About'}">自己紹介</router-link>
+            <router-link class="header-nav-item" v-bind:class="{ select: getSelectedIndex === 2 }" @click.native="selectedChange(2)" :to="{name: 'Experience'}">業務経歴</router-link>
+            <router-link class="header-nav-item" v-bind:class="{ select: getSelectedIndex === 3 }" @click.native="selectedChange(3)" :to="{name: 'Products'}">成果物</router-link>
+            <router-link class="header-nav-item" v-bind:class="{ select: getSelectedIndex === 4 }" @click.native="selectedChange(4)" :to="{name: 'Articles'}">備忘録</router-link>
           </ul>
         </nav>
 
