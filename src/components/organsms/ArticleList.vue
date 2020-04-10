@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import Item from '@/components/molecules/Article'
+import Item from '@/components/molecules/ArticleTitle'
 
 export default {
-  name: 'ItemList',
+  name: 'ArticleList',
 
   components: {
     Item

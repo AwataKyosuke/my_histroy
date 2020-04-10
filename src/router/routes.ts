@@ -3,6 +3,7 @@ import About from '@/views/About.vue'
 import Experience from '@/views/Experience.vue'
 import Products from '@/views/Products.vue'
 import Articles from '@/views/Articles.vue'
+import Article from '@/views/ArticleDetail.vue'
 
 export default [
   {
@@ -29,5 +30,10 @@ export default [
     path: '/articles',
     name: 'Articles',
     component: Articles
-  }
+  },
+  {
+    path: '/articles/:id',
+    name: 'Article',
+    component: Article
+  },
 ]
