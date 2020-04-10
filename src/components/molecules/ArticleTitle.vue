@@ -1,7 +1,7 @@
 <template>
   <div class="item">
     <h3 class="item-title">
-      <router-link :to="{name: 'Article', params: { id: article.id }}" v-bind:articleId="article.id">{{ article.title }}</router-link>
+      <router-link :to="{name: 'Article', params: { id: article.id }}">{{ article.title }}</router-link>
     </h3>
     <p>
       <font-awesome-icon :icon="['fas', 'calendar-alt']" class="item-date-icon" />

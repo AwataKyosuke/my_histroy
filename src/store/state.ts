@@ -6,6 +6,7 @@ export default {
     {
       id: 1,
       title: 'SPAを作ってみた',
+      body: '今回初めてSPAを作りました。苦労した点や今後のためのメモを残しておきます。',
       date: '2020/04/01',
       categories: [ 1 ],
       tags: [ 1,2 ]
@@ -13,6 +14,7 @@ export default {
     {
       id: 2,
       title: 'AWSにデプロイしてみた',
+      body: 'AWSへRailsアプリをデプロイするまでの手順。思ったより難しい！',
       date: '2020/04/02',
       categories: [ 1, 2 ],
       tags: [ 2 ]
