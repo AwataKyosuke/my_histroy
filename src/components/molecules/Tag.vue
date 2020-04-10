@@ -37,7 +37,7 @@ export default {
 }
 
 .select {
-  color: #000;
+  color: #58b4ff;
 }
 
 </style>
