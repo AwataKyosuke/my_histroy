@@ -9,62 +9,61 @@ export default {
     targetTag.selected = !targetTag.selected
   },
 
+  categorySelected(state: any, selectedCategory: string) {
+    const targetCategory = state.categories.filter((category: { name: string }) => category.name === selectedCategory)[0]
+    targetCategory.selected = !targetCategory.selected
+  },
+
   filterKeyword(state: any, value: string) {
     state.filterKeyword = value
   },
 
   filteringArticle(state: any) {
 
-    // 入力されている文字列
+    // 選択されているカテゴリを取得
+    const selectedCategoryId = state.categories.filter((x: { selected: boolean }) => x.selected === true).map((category: { id: any }) => category.id)
+
+    // 選択されているタグを取得
+    const selectedTagId = state.tags.filter((x: { selected: boolean }) => x.selected === true).map((tag: { id: any }) => tag.id)
+
+    // 入力されている文字列を取得
     const inputKeyword = state.filterKeyword
 
-    // フィルタリング後の記事一覧
-    const filtered = [];
-
-    // 記事の数だけループ
-    for (const i in state.articles) {
-
-      // 判定対象の記事
-      const article = state.articles[i];
-
-      // 選択されているタグが含まれているか
-      let tagMatched = false
-
-      // 入力されている文字列がタイトルに含まれているか
-      let keywordMatched = false
-
-      // articleが持っているタグの数だけループ
-      for (const j in article.tags) {
-
-        // 選択されているタグを取得
-        const selectedTag = state.tags.filter((x: { selected: boolean }) => x.selected === true)
-        if (selectedTag.length === 0) {
-          tagMatched = true
-          break;
-        }
-
-        // 記事の持つタグID
-        const articleTagId = article.tags[j]
-
-        // 記事の持つタグIDと一致するタグ
-        const stateTag = state.tags.filter((x: { id: any }) => x.id === articleTagId)[0]
-
-        // タグが選択されているか判定
-        if (stateTag.selected) {
-          tagMatched = true
-        }
-      }
-
-      // 入力文字列がタイトルに含まれているか判定
-      if (inputKeyword.length === 0 || article.title.indexOf(inputKeyword) >= 0) {
-        keywordMatched = true
-      }
-
-      // TODO すべての条件がtrueの場合は追加する
-      if (keywordMatched && tagMatched) {
-        filtered.push(article);
-      }
+    // 検索条件が何も入力されていなければ、全ての記事を戻す
+    if (selectedCategoryId.length === 0 && selectedTagId.length === 0 && inputKeyword.length === 0) {
+      state.filteredArticles = state.articles
+      return
     }
-    state.filteredArticles = filtered;
+
+    // フィルタリング後の記事一覧
+    let filtered = state.articles
+
+      // カテゴリによる絞り込み
+    if (selectedCategoryId.length > 0) {
+      filtered = filtered.filter((targetArticle: { categories: [] }) => 
+        targetArticle.categories.filter((articleCategory: any) => 
+          selectedCategoryId.includes(articleCategory)
+        ).length > 0
+      )
+    }
+
+      // タグによる絞り込み
+    if (selectedTagId.length > 0) {
+      filtered = filtered.filter((targetArticle: { tags: [] }) =>
+        targetArticle.tags.filter(articleTag =>
+          selectedTagId.includes(articleTag)
+        ).length > 0
+      )
+    }
+
+      // キーワードによる絞り込み
+    if (inputKeyword.length > 0) {
+      filtered = filtered.filter((targetArticle: { title: string }) =>
+        targetArticle.title.indexOf(inputKeyword) >= 0
+      )
+    }
+
+    // 絞り込み結果を反映
+    state.filteredArticles = filtered
   }
 }

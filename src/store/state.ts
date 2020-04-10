@@ -12,7 +12,7 @@ export default {
     {
       title: 'AWSにデプロイしてみた',
       date: '2020/04/02',
-      categories: [ 2 ],
+      categories: [ 1, 2 ],
       tags: [ 2 ]
     }
   ],
@@ -27,7 +27,7 @@ export default {
     {
       title: 'AWSにデプロイしてみた',
       date: '2020/04/02',
-      categories: [ 2 ],
+      categories: [ 1, 2 ],
       tags: [ 2 ]
     }
   ],
