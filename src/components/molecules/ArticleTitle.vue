@@ -8,10 +8,10 @@
       <span class="item-date">{{ article.date }}</span>
 
       <font-awesome-icon :icon="['fas', 'folder-open']" class="item-categories-icon" />
-      <span class="item-categories" v-for="category in article.categories" :key="category.id">{{ getCategoryName(category) }}</span>
+      <span class="item-categories" v-for="category in article.categoryId" :key="category.id">{{ getCategoryName(category) }}</span>
 
       <font-awesome-icon :icon="['fas', 'tags']" class="item-tags-icon" />
-      <span class="item-tags" v-for="tag in article.tags" :key="tag.id">{{ getTagName(tag) }}</span></p>
+      <span class="item-tags" v-for="tag in article.tagId" :key="tag.id">{{ getTagName(tag) }}</span></p>
     </div>
 </template>
 

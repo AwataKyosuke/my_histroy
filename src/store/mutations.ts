@@ -40,8 +40,8 @@ export default {
 
       // カテゴリによる絞り込み
     if (selectedCategoryId.length > 0) {
-      filtered = filtered.filter((targetArticle: { categories: [] }) => 
-        targetArticle.categories.filter((articleCategory: any) => 
+      filtered = filtered.filter((targetArticle: { categoryId: [] }) => 
+        targetArticle.categoryId.filter((articleCategory: any) => 
           selectedCategoryId.includes(articleCategory)
         ).length > 0
       )
@@ -49,8 +49,8 @@ export default {
 
       // タグによる絞り込み
     if (selectedTagId.length > 0) {
-      filtered = filtered.filter((targetArticle: { tags: [] }) =>
-        targetArticle.tags.filter(articleTag =>
+      filtered = filtered.filter((targetArticle: { tagId: [] }) =>
+        targetArticle.tagId.filter(articleTag =>
           selectedTagId.includes(articleTag)
         ).length > 0
       )
