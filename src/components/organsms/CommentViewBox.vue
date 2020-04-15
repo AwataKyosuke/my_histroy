@@ -42,4 +42,8 @@ export default {
   margin: 5% 0% 0% 3%;
 }
 
+.user-name {
+  margin: 0% 3%;
+}
+
 </style>
