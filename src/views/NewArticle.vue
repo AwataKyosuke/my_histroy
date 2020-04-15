@@ -4,8 +4,20 @@
       <input type="text" class="title-input" placeholder="タイトル" />
     </div>
     <div class="tag-category-box">
-      <input type="text" class="tag-input" placeholder="タグ" />
-      <input type="text" class="category-input" placeholder="カテゴリ" />
+      <vue-simple-suggest
+        v-model="selected"
+        :list="tags"
+        :filter-by-query="true">
+        <input class="tag-input" placeholder="タグ" type="text" autocomplete=”off”>
+      </vue-simple-suggest>
+
+      <vue-simple-suggest
+        v-model="selected"
+        :list="categories"
+        :filter-by-query="true">
+        <input class="category-input" placeholder="カテゴリ" type="text" autocomplete=”off”>
+      </vue-simple-suggest>
+
     </div>
     <div class="body-box">
       <textarea type="text" class="body-input" placeholder="本文"></textarea>
@@ -19,10 +31,21 @@
 
 <script>
 import Button from '@/components/atoms/Button'
+import VueSimpleSuggest from 'vue-simple-suggest'
+import 'vue-simple-suggest/dist/styles.css' // Using a css-loader
 
 export default {
   components: {
-    Button
+    Button,
+    VueSimpleSuggest,
+  },
+
+  data() {
+    return {
+      selected: null,
+      tags: this.$store.state.tags.map(function (tag) { return tag.name }),
+      categories: this.$store.state.categories.map(function (category) { return category.name }),
+    }
   },
 
   methods: {
@@ -39,6 +62,14 @@ export default {
 </script>
 
 <style scoped>
+
+.vue-simple-suggest {
+  width: 100%;
+}
+
+.input-wrapper {
+  width: 100%;
+}
 
 input {
   box-sizing: border-box;
@@ -58,10 +89,6 @@ textarea {
   resize: none;
 }
 
-.title-input {
-  width: 100%;
-}
-
 .tag-category-box {
   display: flex;
   justify-content: space-between;
@@ -69,17 +96,22 @@ textarea {
 }
 
 .tag-input {
-  width: 49.8%;
+  width: 99%;
+  padding: 0;
 }
 
 .category-input {
-  width: 49.8%;
+  width: 100%;
+  padding: 0;
 }
 
 .title-box {
   margin: 0 0 0.5% 0;
 }
 
+.title-input {
+  width: 100%;
+}
 
 .body-box {
   height: 750px;
