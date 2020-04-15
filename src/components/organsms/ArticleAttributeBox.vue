@@ -37,6 +37,10 @@ export default {
 
 <style scoped>
 
+.article-attribute-box {
+  margin: 0 4%;
+}
+
 .tag-category {
   display: inline-block;
   padding: 0.5% 1%;

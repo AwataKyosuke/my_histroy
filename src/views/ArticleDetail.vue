@@ -81,7 +81,7 @@ export default {
 }
 
 .article-body-box {
-  margin: 2%;
+  margin: 0 4%;
   font-size: 90%;
 }
 
