@@ -5,6 +5,7 @@ import Products from '@/views/Products.vue'
 import Articles from '@/views/Articles.vue'
 import Article from '@/views/ArticleDetail.vue'
 import NewArticle from '@/views/NewArticle.vue'
+import NotFound from '@/views/NotFound.vue'
 
 export default [
   {
@@ -48,5 +49,11 @@ export default [
     name: 'NewArticle',
     component: NewArticle,
     meta: { title: '新規投稿' }
+  },
+  {
+    path: '*',
+    name: 'NotFound',
+    component: NotFound,
+    mata: { title: '404' }
   }
 ]
