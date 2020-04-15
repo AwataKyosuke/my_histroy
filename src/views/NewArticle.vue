@@ -43,28 +43,18 @@ export default {
 input {
   box-sizing: border-box;
   height: 30px;
-  padding: 0 10px;
   font-size: 16px;
   color: #333;
   border: solid 1px #ccc;
-  border-radius: 6px;
-  outline: 0;
-  transition: 0.3s;
-  -webkit-appearance: none;
 }
 
 textarea {
   box-sizing: border-box;
   height: 100%;
   width: 100%;
-  padding: 0 10px;
   font-size: 16px;
   color: #333;
   border: solid 1px #ccc;
-  border-radius: 6px;
-  outline: 0;
-  transition: 0.3s;
-  -webkit-appearance: none;
   resize: none;
 }
 
@@ -72,24 +62,27 @@ textarea {
   width: 100%;
 }
 
+.tag-category-box {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 0.5% 0;
+}
+
 .tag-input {
-  width: 50%;
+  width: 49.8%;
 }
 
 .category-input {
-  width: 50%;
+  width: 49.8%;
 }
 
 .title-box {
   margin: 0 0 0.5% 0;
 }
 
-.tag-category-box {
-  margin: 0 0 0.5% 0;
-}
 
 .body-box {
-  height: 700px;
+  height: 750px;
   margin: 0 0 0.5% 0;
 }
 
