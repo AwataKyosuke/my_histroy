@@ -4,6 +4,7 @@ import Experience from '@/views/Experience.vue'
 import Products from '@/views/Products.vue'
 import Articles from '@/views/Articles.vue'
 import Article from '@/views/ArticleDetail.vue'
+import NewArticle from '@/views/NewArticle.vue'
 
 export default [
   {
@@ -36,4 +37,9 @@ export default [
     name: 'Article',
     component: Article
   },
+  {
+    path: '/articles/new',
+    name: 'NewArticle',
+    component: NewArticle
+  }
 ]

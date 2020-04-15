@@ -15,6 +15,10 @@
       <h3 class="search-title">検索</h3>
       <input type="text" class="search-input" placeholder="キーワードを入力" v-model="filterKeyword" />
 
+      <div class="new-article-button-box">
+        <Button :text="'備忘録を投稿する'" @clicked="newPost" />
+      </div>
+
     </div>
 
     <ArticleList v-bind:articles="validArticles" />
@@ -28,6 +32,7 @@ import SectionHeader from '@/components/atoms/SectionHeader'
 import CategoryList from '@/components/organsms/CategoryList'
 import TagList from '@/components/organsms/TagList'
 import ArticleList from '@/components/organsms/ArticleList'
+import Button from '@/components/atoms/Button'
 
 export default {
 
@@ -45,6 +50,7 @@ export default {
     CategoryList,
     TagList,
     ArticleList,
+    Button,
   },
 
   computed: {
@@ -61,6 +67,12 @@ export default {
         this.$store.commit('filteringArticle')
       }
     },
+  },
+
+  methods: {
+    newPost(){
+      this.$router.push({ name: 'NewArticle' })
+    }
   },
 
   mounted: function(){
@@ -103,6 +115,11 @@ export default {
 
 .search-input:focus {
   border: 1px solid #00b5ad;
+}
+
+.new-article-button-box {
+  margin: 1% 0 0 0;
+  text-align: center;
 }
 
 </style>
