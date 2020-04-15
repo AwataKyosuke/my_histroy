@@ -20,7 +20,8 @@ export default {
 
 <style scoped>
 
-.search-box ul {
+ul {
+  margin: 0;
   width: 100%;
   overflow:hidden;zoom:1;
 }
