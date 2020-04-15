@@ -15,11 +15,6 @@ export default {
   components: {
     SectionHeader
   },
-
-  mounted: function(){
-    this.$store.commit('changeTitle', '自己紹介')
-    document.title = this.$store.state.title
-  }
 }
 </script>
 

@@ -29,12 +29,7 @@ export default {
     SectionHeader,
     ArticleList
   },
-
-  mounted: function(){
-    this.$store.commit('changeTitle', 'ホーム')
-    document.title = this.$store.state.title  
-    }
-  }
+}
 </script>
 
 <style scoped>

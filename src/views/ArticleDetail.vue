@@ -64,12 +64,6 @@ export default {
     CommentViewBox,
     CommentPostBox
   },
-
-  mounted: function(){
-    this.$store.commit('changeTitle', '備忘録')
-    document.title = this.$store.state.title
-  }
-
 }
 
 </script>

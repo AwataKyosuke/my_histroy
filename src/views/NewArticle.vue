@@ -53,11 +53,6 @@ export default {
       this.$router.go(-1)
     }
   },
-
-  mounted: function(){
-    this.$store.commit('changeTitle', '新規投稿')
-    document.title = this.$store.state.title
-  }
 }
 </script>
 

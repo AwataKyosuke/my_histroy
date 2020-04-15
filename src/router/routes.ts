@@ -10,36 +10,43 @@ export default [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: { title: 'ホーム' }
   },
   {
     path: '/about',
     name: 'About',
-    component: About
+    component: About,
+    meta: { title: '自己紹介' }
   },
   {
     path: '/experience',
     name: 'Experience',
-    component: Experience
+    component: Experience,
+    meta: { title: '業務経歴' }
   },
   {
     path: '/products',
     name: 'Products',
-    component: Products
+    component: Products,
+    meta: { title: '成果物' }
   },
   {
     path: '/articles',
     name: 'Articles',
-    component: Articles
+    component: Articles,
+    meta: { title: '備忘録' }
   },
   {
     path: '/articles/:id',
     name: 'Article',
-    component: Article
+    component: Article,
+    meta: { title: '備忘録' }
   },
   {
     path: '/articles/new',
     name: 'NewArticle',
-    component: NewArticle
+    component: NewArticle,
+    meta: { title: '新規投稿' }
   }
 ]
