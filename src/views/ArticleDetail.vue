@@ -32,12 +32,8 @@ export default {
 
   data(){
     return {
-      article: null
+      article: this.$store.getters.getArticle(Number(this.$route.params.id))
     }
-  },
-
-  created() {
-    this.article = this.$store.getters.getArticle(this.$route.params.id)
   },
 
   methods: {
