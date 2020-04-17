@@ -1,4 +1,4 @@
-# my_history
+# notebook_app
 
 ## Project setup
 ```
