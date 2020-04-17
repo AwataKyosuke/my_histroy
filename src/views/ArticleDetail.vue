@@ -36,6 +36,10 @@ export default {
     }
   },
 
+  mounted: function() {
+    document.title = this.article.title
+  },
+
   methods: {
 
     getComments(articleId){
