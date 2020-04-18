@@ -32,7 +32,7 @@ export default {
     return {
       categories: this.$store.state.categories,
       tags: this.$store.state.tags,
-      articles: this.$store.getters.filterArticles,
+      articles: null,
       keyword: this.$store.state.keyword,
     }
   },
