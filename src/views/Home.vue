@@ -4,13 +4,13 @@
 
     <div class="search-box">
 
-      <h3 class="search-title">カテゴリ</h3>
+      <p class="search-title">カテゴリ</p>
       <CategoryList v-bind:categories="categories" />
 
-      <h3 class="search-title">タグ</h3>
+      <p class="search-title">タグ</p>
       <TagList v-bind:tags="tags" />
 
-      <h3 class="search-title">検索</h3>
+      <p class="search-title">検索</p>
       <input type="text" class="search-input" placeholder="キーワードを入力" v-model="filterKeyword" />
 
     </div>
@@ -67,27 +67,29 @@ export default {
 .search-box {
   box-sizing: border-box;
   width: 100%;
-  padding: 1% 5%;
-  margin: 0 0 0.7% 0;
+  padding: 1vh 2vw 2vh 2vw;
+  margin: 0 0 1vh 0;
   border: 0.5px solid #e9eaea;
   border-radius: 3px;
   transition: 0.3s;
 }
 
 .search-title {
-  margin: 0.5% 0;
+  font-size: 0.9vw;
+  font-weight: bold;
+  margin: 0;
 }
 
 .search-input {
   box-sizing: border-box;
   width: 100%;
-  height: 30px;
-  padding: 0 10px;
+  height: 2.8vh;
+  padding: 0 0.5vw;
   margin: 0;
-  font-size: 16px;
+  font-size: 0.7vw;
   color: #333;
   border: solid 1px #ccc;
-  border-radius: 6px;
+  border-radius: 0.5vw;
   outline: 0;
   transition: 0.3s;
   -webkit-appearance: none;

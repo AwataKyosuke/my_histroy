@@ -21,18 +21,19 @@ export default {
 
 <style scoped>
 
-.search-box ul li {
+li {
   float:left;
   list-style:none;
   margin-right: 1%;
 }
 
 .own-tag {
+  font-size: 0.8vw;
   color: darkgray;
   text-decoration: none;
 }
 
-.search-box ul li a:hover {
+a:hover {
   color: #58b4ff;
 }
 
