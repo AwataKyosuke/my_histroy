@@ -51,7 +51,7 @@ border:dashed 1px #999;
 #sidenavi {
    -webkit-flex-direction: row;
   flex-direction: row;
-  width: 300px;
+  width: 16vw;
 }
 
 #main {

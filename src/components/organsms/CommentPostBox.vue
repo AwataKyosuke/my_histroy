@@ -30,9 +30,9 @@ export default {
 <style scoped>
 
 .comment-post-box {
-  border: 0.5px solid #e9eaea;
-  padding: 1%;
-  margin: 1% 3% 1% 3%;
+  border: 0.1px solid #e9eaea;
+  padding: 0.5vw;
+  margin: 0 2vw 0 2vw;
 }
 
 .comment-post-box-body {
@@ -40,7 +40,10 @@ export default {
 }
 
 .comment-post-box-input {
-  font-size: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  font-size: 0.7vw;
+  outline: 0;
   resize: none;
   width: 99.4%;
   border-radius: 1%;
@@ -48,7 +51,7 @@ export default {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  height: calc( 1em * 4 );
+  height: calc( 0.75vw * 6 );
   line-height: 1;
 }
 

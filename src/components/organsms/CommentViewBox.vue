@@ -1,8 +1,8 @@
 <template>
   <div class="comment-view-box">
     <p class="comment-text">{{ comment.body }}</p>
-    <span class="user-name">投稿者：{{ getUser(comment.userId) }}</span>
-    <span class="post-date">投稿日：{{ comment.date }}</span>
+    <span class="user-name">投稿者 {{ getUser(comment.userId) }}</span>
+    <span class="post-date">投稿日 {{ comment.date }}</span>
   </div>
 </template>
 
@@ -25,25 +25,21 @@ export default {
 
 .comment-view-box {
   border-bottom: 0.5px solid #e9eaea;
-  padding: 1%;
-  margin: 0 3%;
+  padding: 0.5vw;
+  margin: 0 2vw;
   color: #555;
-  font-size: 70%;
+  font-size: 0.7vw;
   text-align: right;
 }
 
 .comment-text {
   text-align: left;
-  font-size: 120%;
+  font-size: 0.75vw;
   margin: 0;
 }
 
-.comment-header {
-  margin: 5% 0% 0% 3%;
-}
-
 .user-name {
-  margin: 0% 3%;
+  margin: 0% 1vw;
 }
 
 </style>

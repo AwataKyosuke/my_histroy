@@ -18,19 +18,21 @@ export default {
 
 .button {
   display: inline-block;
-  padding: 0.4em 1.6em;
-  font-size: 0.8em;
-  color: #00b5ad;
+  padding: 0.5vh 1.5vw;
+  font-size: 0.8vw;
+  color: #fff;
   text-decoration: none;
   user-select: none;
+  background: #00b5ad;
   border: 1px #00b5ad solid;
   border-radius: 3px;
-  transition: 0.4s ease;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+  transition: 0.2s ease;
 }
 
 .button:hover {
-  color: #fff;
-  background: #00b5ad;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
+  cursor: pointer;
 }
 
 </style>
