@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default {
-  filterKeyword: state => state.filterKeyword,
-  getArticle: state => id => { return state.articles.find(x => x.id === id) }
+  filterKeyword: (state: { filterKeyword: string }) => state.filterKeyword,
+  getArticle: (state: { articles: any }) => (id: number) => { return state.articles.find((x: { id: number }) => x.id === id) }
 
 }

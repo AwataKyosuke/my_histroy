@@ -51,9 +51,8 @@ export default {
     },
 
     clicked(){
-      console.log('submit')
+      ''
     },
-
   },
 
   components: {
