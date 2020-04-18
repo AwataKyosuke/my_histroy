@@ -23,8 +23,7 @@ export default {
 .box {
   box-sizing: border-box;
   width: 100%;
-  padding: 1% 5%;
-  margin: 0 auto;
+  padding: 1vh 2vw 1vh 2vw;
   border: 0.5px solid #e9eaea;
   border-radius: 3px;
   transition: 0.3s;
