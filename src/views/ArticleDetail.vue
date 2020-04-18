@@ -32,7 +32,8 @@ export default {
 
   data(){
     return {
-      article: this.$store.getters.getArticle(Number(this.$route.params.id))
+      article: this.$store.getters.getArticle(Number(this.$route.params.id)),
+      newCommentId: this.$store.getters.maxCommentId + 1
     }
   },
 
@@ -50,8 +51,9 @@ export default {
       this.$router.go(-1)
     },
 
-    clicked(){
-      ''
+    clicked(value){
+      this.$store.commit('addComment', { id: this.newCommentId, articleId: this.article.id, userId: 5, body: value, date: '2020/4/18' })
+      this.newCommentId += 1
     },
   },
 

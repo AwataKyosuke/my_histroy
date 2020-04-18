@@ -23,7 +23,7 @@ export default {
 ul {
   margin: 0;
   width: 100%;
-  overflow:hidden;zoom:1;
+  display: flex;
 }
 
 </style>

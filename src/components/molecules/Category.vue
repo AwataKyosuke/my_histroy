@@ -22,7 +22,6 @@ export default {
 <style scoped>
 
 li {
-  float:left;
   list-style:none;
   margin-right: 1%;
 }

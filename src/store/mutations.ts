@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default {
-  
+
   tagSelected(state: any, selectedTag: string) {
     const targetTag = state.tags.filter((tag: { name: string }) => tag.name === selectedTag)[0]
     targetTag.selected = !targetTag.selected
@@ -62,5 +62,22 @@ export default {
 
     // 絞り込み結果を反映
     state.filteredArticles = filtered
+  },
+
+  addComment(state: any, addObj: any)
+  {
+    state.comments.push(addObj);
+  },
+
+  addCategory(state: any, addObj: any) {
+    state.categories.push(addObj);
+  },
+
+  addTag(state: any, addObj: any) {
+    state.tags.push(addObj);
+  },
+
+  addArticle(state: any, addObj: any) {
+    state.articles.push(addObj);
   }
 }
