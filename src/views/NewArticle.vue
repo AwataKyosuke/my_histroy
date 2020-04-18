@@ -3,9 +3,6 @@
     <div class="title-box">
       <input type="text" class="title-input" placeholder="タイトル" />
     </div>
-    <div class="tag-category-box">
-
-    </div>
     <div class="body-box">
       <textarea type="text" class="body-input" placeholder="本文"></textarea>
     </div>
@@ -40,18 +37,10 @@ export default {
 
 <style scoped>
 
-.vue-simple-suggest {
-  width: 100%;
-}
-
-.input-wrapper {
-  width: 100%;
-}
-
 input {
   box-sizing: border-box;
-  height: 30px;
-  font-size: 16px;
+  height: 3vh;
+  font-size: 0.8vw;
   color: #333;
   border: solid 1px #ccc;
 }
@@ -60,7 +49,7 @@ textarea {
   box-sizing: border-box;
   height: 100%;
   width: 100%;
-  font-size: 16px;
+  font-size: 0.8vw;
   color: #333;
   border: solid 1px #ccc;
   resize: none;
@@ -83,7 +72,7 @@ textarea {
 }
 
 .title-box {
-  margin: 0 0 0.5% 0;
+  margin: 0 0 0.3vh 0;
 }
 
 .title-input {
@@ -91,8 +80,8 @@ textarea {
 }
 
 .body-box {
-  height: 750px;
-  margin: 0 0 0.5% 0;
+  height: 80vh;
+  margin: 0 0 0.3vw 0;
 }
 
 .button-box {
