@@ -1,7 +1,7 @@
 <template>
   <div class="comment-post-box">
     <div class="comment-post-box-body">
-      <textarea class="comment-post-box-input"></textarea>
+      <textarea class="comment-post-box-input" v-model="inputComment"></textarea>
     </div>
     <div class="comment-post-box-footer">
       <Button :text="'送信'" @clicked="submit" />
@@ -14,13 +14,30 @@ import Button from '@/components/atoms/Button'
 
 export default {
 
+  dara(){
+    return{
+      comment: ''
+    }
+  },
+
   components: {
     Button
   },
 
+  computed: {
+    inputComment: {
+      get() {
+        return this.comment
+      },
+      set(value) {
+        this.comment = value
+      }
+    }
+  },
+
   methods: {
     submit(){
-      this.$emit('clicked')
+      this.$emit('clicked', this.comment)
     }
   }
 
