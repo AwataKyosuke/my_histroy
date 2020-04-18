@@ -4,19 +4,6 @@
       <input type="text" class="title-input" placeholder="タイトル" />
     </div>
     <div class="tag-category-box">
-      <vue-simple-suggest
-        v-model="selected"
-        :list="tags"
-        :filter-by-query="true">
-        <input class="tag-input" placeholder="タグ" type="text" autocomplete=”off”>
-      </vue-simple-suggest>
-
-      <vue-simple-suggest
-        v-model="selected"
-        :list="categories"
-        :filter-by-query="true">
-        <input class="category-input" placeholder="カテゴリ" type="text" autocomplete=”off”>
-      </vue-simple-suggest>
 
     </div>
     <div class="body-box">
@@ -31,20 +18,15 @@
 
 <script>
 import Button from '@/components/atoms/Button'
-import VueSimpleSuggest from 'vue-simple-suggest'
-import 'vue-simple-suggest/dist/styles.css' // Using a css-loader
 
 export default {
   components: {
     Button,
-    VueSimpleSuggest,
   },
 
   data() {
     return {
       selected: null,
-      tags: this.$store.state.tags.map(function (tag) { return tag.name }),
-      categories: this.$store.state.categories.map(function (category) { return category.name }),
     }
   },
 

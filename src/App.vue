@@ -34,10 +34,6 @@ export default {
   components:{
     Header,
     Sidenavi
-  },
-
-  mounted: function(){
-    document.title = this.$store.state.title
   }
 }
 </script>

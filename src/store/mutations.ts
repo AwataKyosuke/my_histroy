@@ -1,9 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default {
-  changeTitle(state: any, title: string ) {
-    state.title = title
-  },
-
+  
   tagSelected(state: any, selectedTag: string) {
     const targetTag = state.tags.filter((tag: { name: string }) => tag.name === selectedTag)[0]
     targetTag.selected = !targetTag.selected

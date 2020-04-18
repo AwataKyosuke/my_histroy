@@ -10,10 +10,11 @@ const router = new Router({
   routes
 })
 
-router.afterEach((to, from) => {
+router.beforeEach((to, from, next) => {
   if (to.meta && to.meta.title) {
     document.title = to.meta.title
   }
-})
+  next();
+});
 
 export default router

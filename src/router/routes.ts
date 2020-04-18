@@ -1,8 +1,4 @@
 import Home from '@/views/Home.vue'
-import About from '@/views/About.vue'
-import Experience from '@/views/Experience.vue'
-import Products from '@/views/Products.vue'
-import Articles from '@/views/Articles.vue'
 import Article from '@/views/ArticleDetail.vue'
 import NewArticle from '@/views/NewArticle.vue'
 import NotFound from '@/views/NotFound.vue'
@@ -12,48 +8,24 @@ export default [
     path: '/',
     name: 'Home',
     component: Home,
-    meta: { title: 'ホーム' }
+    meta: { title: 'トップ', description: 'トップページ。メモのようなブログのようなよくわからないWebサイト。' },
   },
   {
-    path: '/about',
-    name: 'About',
-    component: About,
-    meta: { title: '自己紹介' }
-  },
-  {
-    path: '/experience',
-    name: 'Experience',
-    component: Experience,
-    meta: { title: '業務経歴' }
-  },
-  {
-    path: '/products',
-    name: 'Products',
-    component: Products,
-    meta: { title: '成果物' }
-  },
-  {
-    path: '/articles',
-    name: 'Articles',
-    component: Articles,
-    meta: { title: '備忘録' }
-  },
-  {
-    path: '/articles/:id',
+    path: '/article_:id',
     name: 'Article',
     component: Article,
-    meta: { title: '備忘録' }
+    meta: { title: '記事詳細', description: '記事詳細ページ' },
   },
   {
-    path: '/articles/new',
+    path: '/new',
     name: 'NewArticle',
     component: NewArticle,
-    meta: { title: '新規投稿' }
+    meta: { title: '新規投稿', description: '新規投稿ページ' },
   },
   {
     path: '*',
     name: 'NotFound',
     component: NotFound,
-    mata: { title: '404' }
+    meta: { title: '404', description: 'ページが見つかりませんでした。' },
   }
 ]
