@@ -18,8 +18,8 @@ export default {
 
 .button {
   display: inline-block;
-  padding: 0.4em 1.6em;
-  font-size: 0.8em;
+  padding: 0.5vh 1.5vw;
+  font-size: 0.8vw;
   color: #fff;
   text-decoration: none;
   user-select: none;

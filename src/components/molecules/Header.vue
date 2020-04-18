@@ -5,13 +5,11 @@
 
       <div class="header-inner">
 
-        <div class="header-title">
-          <div class="logo-box">
-            <router-link :to="{name: 'Home'}" class="home-link">
-              <img src="@/assets/namekuji.png" class="logo" />
-            </router-link>
-          </div>
-          クソザコナメクジエンジニアの備忘録
+        <div class="logo-and-title-box">
+          <router-link :to="{name: 'Home'}" class="logo-box">
+            <img src="@/assets/namekuji.png" class="logo" />
+          </router-link>
+          <p class="title">クソザコナメクジエンジニアの備忘録</p>
         </div>
 
         <div class="new-article-button-box">
@@ -60,22 +58,32 @@ export default {
 }
 
 .logo-box {
-  height: 40px;
-  width: 40px;
+  display: block;
+  width: 1.8vw;
   margin: 0 1% 0 0;
 }
 
-.logo {
-  height: 40px;
-  width: 40px;
+.title {
+  font-size: 1.2vw;
+  margin: 0;
 }
 
-.header-title {
+.logo {
+  vertical-align: bottom;
+  height: 100%;
+  width: 100%;
+}
+
+.logo-and-title-box {
   display: flex;
   align-items: flex-end;
-  width: 375px;
+  width: 23vw;
   font-weight: bold;
   background: linear-gradient(transparent 75%, #ffb5ad 75%);
+}
+
+.new-article-button-box {
+  align-self: center;
 }
 
 </style>
