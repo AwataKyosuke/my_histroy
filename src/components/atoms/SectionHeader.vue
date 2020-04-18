@@ -1,5 +1,5 @@
 <template>
-  <h2 class="section-header">{{ title }}</h2>
+  <p class="section-header">{{ title }}</p>
 </template>
 
 <script>
@@ -10,9 +10,11 @@ export default {
 
 <style scoped>
 .section-header {
-  padding-left: 0.5em;
-  font-size: 1.5em;
+  padding-left: 0.7vw;
+  margin: 0.5vh;
+  font-size: 1vw;
+  font-weight: bold;
   color: #333;
-  border-left: 4px solid #00b5ad;
+  border-left: 0.3vw solid #00b5ad;
 }
 </style>

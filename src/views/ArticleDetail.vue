@@ -70,12 +70,12 @@ export default {
 <style scoped>
 
 .back-wrapper {
-  margin: 1% 1% 1% 3%;
+  margin: 1vh 1vw 1vh 2vw;
 }
 
 .article-body-box {
-  margin: 0 4%;
-  font-size: 90%;
+  margin: 0 2vw;
+  font-size: 0.8vw;
 }
 
 </style>
