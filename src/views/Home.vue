@@ -79,7 +79,7 @@ export default {
   box-sizing: border-box;
   width: 100%;
   padding: 1% 5%;
-  margin: 1% 0;
+  margin: 0 0 0.7% 0;
   border: 0.5px solid #e9eaea;
   border-radius: 3px;
   transition: 0.3s;
