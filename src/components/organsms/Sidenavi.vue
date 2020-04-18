@@ -41,8 +41,7 @@
 .sidenavi-box {
   box-sizing: border-box;
   width: 100%;
-  padding: 5% 5%;
-  margin: 0 auto;
+  padding: 5% 5% 0 5%;
   border: 0.5px solid #e9eaea;
   border-radius: 3px;
   transition: 0.3s;
@@ -79,9 +78,8 @@
 
 .contact {
   border-top: 0.5px solid #e9eaea;
-  padding-top: 3%;
-
-  text-align: center;
+  display: flex;
+  justify-content: space-around;
 }
 
 .github {
