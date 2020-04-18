@@ -5,9 +5,9 @@
         <img src="@/assets/sidenavi_icon.png" class="icon" />
       </div>
       <div class="detail-box">
-        <p class="item"><font-awesome-icon :icon="['fas', 'user-circle']" class="awesome-icon fa-lg" />Kyosuke</p>
-        <p class="item"><font-awesome-icon :icon="['fas', 'map-marker-alt']" class="awesome-icon fa-lg" />東京都</p>
-        <p class="item"><font-awesome-icon :icon="['fas', 'birthday-cake']" class="awesome-icon fa-lg" />23歳</p>
+        <p class="item"><font-awesome-icon :icon="['fas', 'user-circle']" class="awesome-icon" />Kyosuke</p>
+        <p class="item"><font-awesome-icon :icon="['fas', 'map-marker-alt']" class="awesome-icon" />東京都</p>
+        <p class="item"><font-awesome-icon :icon="['fas', 'birthday-cake']" class="awesome-icon" />23歳</p>
       </div>
     </div>
     <div class="about">
@@ -35,13 +35,13 @@
 
 .flex-box {
   display: flex;
-  height: 110px;
+  height: 10vh;
 }
 
 .sidenavi-box {
   box-sizing: border-box;
   width: 100%;
-  padding: 5% 5% 0 5%;
+  padding: 2vh 1vw 0 1vw;
   border: 0.5px solid #e9eaea;
   border-radius: 3px;
   transition: 0.3s;
@@ -52,7 +52,7 @@
 }
 
 .about {
-  font-size: 100%;
+  font-size: 0.8vw;
 }
 
 .icon {
@@ -61,17 +61,18 @@
 }
 
 .icon-box {
-  width: 120px;
-  margin: 0 10% 0 0;
+  height: 6vw;
+  width: 6vw;
+  margin: 0 1.5vw 0 0;
 }
 
 .detail-box {
-  width: 100px;
-  height: 100px;
+  height: 6vw;
+  width: 6vw;
 }
 
 .item {
-  font-size: 100%;
+  font-size: 0.8vw;
   padding: 0;
   margin: 10% 0 10% 0;
 }
