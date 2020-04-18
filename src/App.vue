@@ -1,26 +1,26 @@
 <template>
 
-  <div id="wrap">
-
     <div id="app">
 
       <Header />
 
-      <div id="sidenavi">
+      <div id="content">
 
-        <Sidenavi />
+        <div id="main">
 
-      </div>
+          <router-view/>
 
-      <div id="contents">
+        </div>
 
-        <router-view/>
+        <div id="sidenavi">
+
+          <Sidenavi />
+
+        </div>
 
       </div>
 
     </div>
-
-  </div>
 
 </template>
 
@@ -39,9 +39,9 @@ export default {
 </script>
 
 <style scoped>
-#wrap {
-width:100%;
-margin: auto;
+#content {
+  display: -webkit-flex;
+  display: flex;
 }
 
 header {
@@ -49,13 +49,16 @@ border:dashed 1px #999;
 }
 
 #sidenavi {
-float:right;
-width:20%;
+   -webkit-flex-direction: row;
+  flex-direction: row;
+  width: 300px;
 }
 
-#contents {
-float:left;
-width:79%;
+#main {
+   -webkit-flex-direction: row;
+  flex-direction: row;
+  flex-grow: 1;
+  margin: 0 0.5% 0 0;
 }
 
 footer {
