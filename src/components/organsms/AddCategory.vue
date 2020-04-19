@@ -1,7 +1,7 @@
 <template>
   <div class="category-box">
     <ul>
-      <Category v-for="category in categories" :key="category.id" v-bind:category="category" />
+      <Category v-for="category in categories" :key="category.id" v-bind:category="category" @selected="selected($event)" />
     </ul>
     <div class="padding-zone"></div>
     <div class="new"><input type="text" class="add-input" v-model="name"><Button :text="'追加'" @clicked="addCategory" /></div>
@@ -30,6 +30,9 @@ export default {
   methods: {
     addCategory() {
       this.$store.commit('addCategory', { id: this.$store.getters.maxCategoryId + 1, name: this.name, selected: true })
+    },
+    selected(id) {
+      this.$emit('selected', id)
     }
   }
 

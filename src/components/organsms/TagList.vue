@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <Tag v-for="tag in tags" :key="tag.id" v-bind:tag="tag" />
+    <Tag v-for="tag in tags" :key="tag.id" v-bind:tag="tag" @selected="selected($event)" />
   </ul>
 </template>
 
@@ -14,7 +14,13 @@ export default {
     Tag
   },
 
-  props:[ 'tags' ]
+  props:[ 'tags' ],
+
+  methods: {
+    selected(id) {
+      this.$emit('selected', id)
+    }
+  }
 }
 </script>
 

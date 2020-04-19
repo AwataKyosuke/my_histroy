@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <Category v-for="category in categories" :key="category.id" v-bind:category="category" />
+    <Category v-for="category in categories" :key="category.id" v-bind:category="category" @selected="selected($event)" />
   </ul>
 </template>
 
@@ -14,7 +14,13 @@ export default {
     Category
   },
 
-  props: [ 'categories' ]
+  props: [ 'categories' ],
+
+  methods: {
+    selected(id) {
+      this.$emit('selected', id)
+    }
+  }
 }
 </script>
 

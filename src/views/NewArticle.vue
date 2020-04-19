@@ -18,9 +18,9 @@
       </router-link>
     </div>
 
-    <AddCategory :categories="categories" v-show="categoriesOpen" />
+    <AddCategory :categories="categories" v-show="categoriesOpen" @selected="categorySelected($event)" />
 
-    <AddTag :tags="tags" v-show="tagsOpen" />
+    <AddTag :tags="tags" v-show="tagsOpen" @selected="tagSelected($event)" />
 
     <div class="body-box">
       <textarea type="text" class="body-input" placeholder="本文" v-model="body" ></textarea>
@@ -83,6 +83,16 @@ export default {
 
     openTag(){
       this.tagsOpen = !this.tagsOpen
+    },
+
+    categorySelected(id){
+      const status = this.categories.find(x => x.id === id)
+      status.selected = !status.selected
+    },
+
+    tagSelected(id){
+      const status = this.tags.find(x => x.id === id)
+      status.selected = !status.selected
     }
   },
 }

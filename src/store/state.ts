@@ -1,29 +1,6 @@
 export default {
 
-  title: 'ホーム',
-
   articles: [
-    {
-      id: 1,
-      categoryId: [ 1 ],
-      tagId: [1, 2],
-      userId: 1,
-      title: 'SPAを作ってみた',
-      body: '今回初めてSPAを作りました。苦労した点や今後のためのメモを残しておきます。',
-      date: '2020/04/01',
-    },
-    {
-      id: 2,
-      categoryId: [ 1, 2 ],
-      tagId: [2],
-      userId: 2,
-      title: 'AWSにデプロイしてみた',
-      body: 'AWSへRailsアプリをデプロイするまでの手順。思ったより難しい！',
-      date: '2020/04/02',
-    }
-  ],
-
-  filteredArticles: [
     {
       id: 1,
       categoryId: [ 1 ],
@@ -113,5 +90,4 @@ export default {
     { id: 3, name: 'Azure', selected: false }
   ],
 
-  filterKeyword: ''
 }

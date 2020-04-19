@@ -5,13 +5,13 @@
     <div class="search-box">
 
       <p class="search-title">カテゴリ</p>
-      <CategoryList v-bind:categories="categories" />
+      <CategoryList v-bind:categories="categories" @selected="categorySelected($event)" />
 
       <p class="search-title">タグ</p>
-      <TagList v-bind:tags="tags" />
+      <TagList v-bind:tags="tags" @selected="tagSelected($event)" />
 
       <p class="search-title">検索</p>
-      <input type="text" class="search-input" placeholder="キーワードを入力" v-model="filterKeyword" />
+      <input type="text" class="search-input" placeholder="キーワードを入力" v-model="keyword" />
 
     </div>
 
@@ -32,8 +32,8 @@ export default {
     return {
       categories: this.$store.state.categories,
       tags: this.$store.state.tags,
-      articles: null,
-      keyword: this.$store.state.keyword,
+      articles: this.$store.state.articles,
+      inputKeyword: '',
     }
   },
 
@@ -45,19 +45,37 @@ export default {
 
   computed: {
     validArticles: function () {
-      return this.$store.state.filteredArticles
+      const tagId = this.tags.filter(x => x.selected === true).map(x => x.id)
+      const categoryId = this.categories.filter(x => x.selected === true).map(x => x.id)
+      const param = {
+        keyword: this.inputKeyword,
+        tagId: tagId,
+        categoryId: categoryId
+      }
+      return this.$store.getters.filteredArticles(param)
     },
 
-    filterKeyword: {
+    keyword: {
       get() {
-        return this.$store.getters.filterKeyword
+        return this.inputKeyword
       },
-      set(value) {
-        this.$store.commit('filterKeyword', value)
-        this.$store.commit('filteringArticle')
+      set (value) {
+        this.inputKeyword = value
       }
     },
   },
+
+  methods: {
+    categorySelected(id){
+      const status = this.categories.find(x => x.id === id)
+      status.selected = !status.selected
+    },
+
+    tagSelected(id){
+      const status = this.tags.find(x => x.id === id)
+      status.selected = !status.selected
+    }
+  }
 
 }
 </script>
