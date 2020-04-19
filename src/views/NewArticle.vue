@@ -27,7 +27,6 @@
     </div>
 
     <div class="button-box">
-      <Button :text="'戻る'" @clicked="back" />
       <Button :text="'投稿'" @clicked="addArticle" />
     </div>
 
@@ -59,9 +58,6 @@ export default {
   },
 
   methods: {
-    back(){
-      this.$router.go(-1)
-    },
 
     addArticle() {
       this.$store.commit('addArticle',
@@ -157,7 +153,7 @@ a {
 
 .button-box {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .add-box {

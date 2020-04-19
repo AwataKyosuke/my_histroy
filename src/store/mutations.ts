@@ -16,6 +16,18 @@ export default {
 
   addArticle(state: any, addObj: any) {
     state.articles.push(addObj);
+  },
+
+  addUser(state: any, addObj: any) {
+    state.users.push(addObj);
+  },
+
+  login(state: any, id: number) {
+    state.loggedInUserId = id
+  },
+
+  logout(state: any) {
+    state.loggedInUserId = null
   }
 
 }

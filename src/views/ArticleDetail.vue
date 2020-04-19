@@ -12,9 +12,8 @@
     <CommentViewBox v-for="comment in getComments(article.id)" :key="comment.id" :comment="comment" />
 
     <SubHeader :text="'コメントを投稿する'" class="comment-header" />
-    <CommentPostBox @clicked="clicked" />
-
-  <Button class="back-wrapper" @clicked="back" :text="'戻る'" />
+    <CommentPostBox @clicked="clicked" v-show="loggedIn" />
+    <p v-show="!loggedIn" class="login-require">コメントを投稿するにはログインする必要があります。</p>
 
   </div>
 
@@ -23,7 +22,6 @@
 <script>
 import SectionHeader from '@/components/atoms/SectionHeader'
 import SubHeader from '@/components/atoms/SubHeader'
-import Button from '@/components/atoms/Button'
 import ArticleAttributeBox from '@/components/organsms/ArticleAttributeBox'
 import CommentViewBox from '@/components/organsms/CommentViewBox'
 import CommentPostBox from '@/components/organsms/CommentPostBox'
@@ -39,6 +37,12 @@ export default {
 
   mounted: function() {
     document.title = this.article.title
+  },
+
+  computed: {
+    loggedIn(){
+      return this.$store.getters.loggedIn
+    }
   },
 
   methods: {
@@ -60,7 +64,6 @@ export default {
   components: {
     SectionHeader,
     SubHeader,
-    Button,
     ArticleAttributeBox,
     CommentViewBox,
     CommentPostBox
@@ -71,13 +74,14 @@ export default {
 
 <style scoped>
 
-.back-wrapper {
-  margin: 1vh 1vw 1vh 2vw;
-}
-
 .article-body-box {
   margin: 0 2vw;
   font-size: 0.8vw;
+}
+
+.login-require {
+  font-size: 1vw;
+  margin: 1vw;
 }
 
 </style>

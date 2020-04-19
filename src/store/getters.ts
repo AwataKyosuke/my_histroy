@@ -50,6 +50,10 @@ export default {
     }
   },
 
+  maxUserId(state: any) {
+    return state.users.length
+  },
+
   maxCommentId(state: any) {
     return state.comments.length
   },
@@ -66,4 +70,13 @@ export default {
     return state.articles.length
   },
 
+  loggedIn(state: any) {
+    return state.loggedInUserId !== null
+  },
+
+  getUser(state: any) {
+    return function (userInfo: any) {
+      return state.users.find((x: { email: string; password: string }) => x.email === userInfo.email && x.password === userInfo.password)
+    }
+  }
 }

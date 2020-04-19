@@ -78,6 +78,8 @@ export default {
     },
   ],
 
+  loggedInUserId: null,
+
   categories: [
     { id: 1, name: 'Web開発', selected: false },
     { id: 2, name: 'クラウドサービス', selected: false },
