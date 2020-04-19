@@ -1,7 +1,7 @@
 <template>
   <div class="tag-box">
     <ul>
-      <Tag v-for="tag in tags" :key="tag.id" v-bind:tag="tag" />
+      <Tag v-for="tag in tags" :key="tag.id" v-bind:tag="tag" @selected="selected($event)" />
     </ul>
     <div class="padding-zone"></div>
     <div class="new"><input type="text" class="add-input" v-model="name"><Button :text="'追加'" @clicked="addTag" /></div>
@@ -30,6 +30,10 @@ export default {
   methods: {
     addTag() {
       this.$store.commit('addTag', { id: this.$store.getters.maxTagId + 1, name: this.name, selected: true })
+    },
+
+    selected(id) {
+      this.$emit('selected', id)
     }
   }
 }

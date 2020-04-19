@@ -12,8 +12,7 @@ export default {
 
   methods:{
     selected(){
-      this.$store.commit('categorySelected', this.category.name)
-      this.$store.commit('filteringArticle')
+      this.$emit('selected', this.category.id)
     }
   }
 }

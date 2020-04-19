@@ -18,16 +18,15 @@
       </router-link>
     </div>
 
-    <AddCategory :categories="categories" v-show="categoriesOpen" />
+    <AddCategory :categories="categories" v-show="categoriesOpen" @selected="categorySelected($event)" />
 
-    <AddTag :tags="tags" v-show="tagsOpen" />
+    <AddTag :tags="tags" v-show="tagsOpen" @selected="tagSelected($event)" />
 
     <div class="body-box">
       <textarea type="text" class="body-input" placeholder="本文" v-model="body" ></textarea>
     </div>
 
     <div class="button-box">
-      <Button :text="'戻る'" @clicked="back" />
       <Button :text="'投稿'" @clicked="addArticle" />
     </div>
 
@@ -59,9 +58,6 @@ export default {
   },
 
   methods: {
-    back(){
-      this.$router.go(-1)
-    },
 
     addArticle() {
       this.$store.commit('addArticle',
@@ -83,6 +79,16 @@ export default {
 
     openTag(){
       this.tagsOpen = !this.tagsOpen
+    },
+
+    categorySelected(id){
+      const status = this.categories.find(x => x.id === id)
+      status.selected = !status.selected
+    },
+
+    tagSelected(id){
+      const status = this.tags.find(x => x.id === id)
+      status.selected = !status.selected
     }
   },
 }
@@ -147,7 +153,7 @@ a {
 
 .button-box {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .add-box {
