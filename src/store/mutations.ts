@@ -49,7 +49,7 @@ export default {
   },
 
   updateArticle(state: any, editObj: any) {
-    const target = state.articles.find(x => x.id === editObj.id)
+    const target = state.articles.find((x: { id: any }) => x.id === editObj.id)
     target.categoryId = editObj.categoryId
     target.tagId = editObj.tagId
     target.title = editObj.title
