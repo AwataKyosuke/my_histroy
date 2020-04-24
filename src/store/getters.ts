@@ -78,5 +78,10 @@ export default {
     return function (userInfo: any) {
       return state.users.find((x: { email: string; password: string }) => x.email === userInfo.email && x.password === userInfo.password)
     }
+  },
+
+  getNowDate() {
+    const date = new Date();
+    return `${date.getFullYear()}/${('0' + (date.getMonth() + 1)).slice(-2)}/${('0' + date.getDate()).slice(-2)} ${('0' + date.getHours()).slice(-2)}:${('0' + date.getMinutes()).slice(-2)}`
   }
 }

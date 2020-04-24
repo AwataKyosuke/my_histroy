@@ -13,7 +13,9 @@
         </div>
 
         <div class="button-box">
-          <Button :text="'新規投稿'" @clicked="newPost" v-show="loggedIn && !newPostPage" class="button" />
+          <Button :text="'新規投稿'" @clicked="newPost" v-show="loggedIn && !(getPageName === 'NewArticle')" class="button" />
+          <Button :text="'編集'" @clicked="editPost" v-show="loggedIn && loginUserArticle && (getPageName === 'Article')" class="button" />
+          <Button :text="'削除'" @clicked="deletePost" v-show="loggedIn && loginUserArticle && (getPageName === 'EditArticle')" class="button" />
           <Button :text="'ログアウト'" @clicked="logout" v-show="loggedIn" class="button" />
 
           <Button :text="'ログイン'" @clicked="openLoginModal" v-show="!loggedIn" class="button" />
@@ -88,15 +90,30 @@ export default {
       return this.$store.getters.loggedIn
     },
 
-    newPostPage(){
-      return this.$route.path === '/new'
-    }
+    loginUserArticle() {
+      return this.$route.params['id'] === this.$store.state.loggedInUserId
+    },
+
+    getPageName(){
+      return this.$route.name
+    },
   },
 
   methods: {
 
     newPost(){
       this.$router.push({ name: 'NewArticle' })
+    },
+
+    editPost(){
+      this.$router.push({ name: 'EditArticle', params: { id: this.$route.params['id'] }})
+    },
+
+    deletePost(){
+      if(confirm('記事を削除します。よろしいですか？')) {
+        this.$store.commit('deleteArticle', this.$route.params['id'])
+        this.$router.push({ name: 'Home' })
+      }
     },
 
     openLoginModal() {
@@ -139,7 +156,10 @@ export default {
     },
 
     logout(){
-      this.$store.commit('logout')
+      if(confirm('ログアウトします。よろしいですか？')) {
+        this.$store.commit('logout')
+        this.$router.push({ name: 'Home' })
+      }
     },
 
     create(){

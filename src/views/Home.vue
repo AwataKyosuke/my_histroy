@@ -75,6 +75,10 @@ export default {
       const status = this.tags.find(x => x.id === id)
       status.selected = !status.selected
     }
+  },
+
+  mounted: function() {
+    this.$store.commit('clear')
   }
 
 }
