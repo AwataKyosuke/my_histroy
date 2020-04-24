@@ -56,8 +56,17 @@ export default {
     },
 
     clicked(value){
-      this.$store.commit('addComment', { id: this.newCommentId, articleId: this.article.id, userId: 5, body: value, date: '2020/4/18' })
-      this.newCommentId += 1
+      if(confirm('コメントを送信します。よろしいですか？')) {
+        const addObj = { 
+          id: this.newCommentId, 
+          articleId: this.article.id, 
+          userId: this.$store.state.loggedInUserId, 
+          body: value, 
+          date: this.$store.getters.getNowDate 
+        }
+        this.$store.commit('addComment', addObj)
+        this.newCommentId += 1
+      }
     },
   },
 

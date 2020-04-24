@@ -78,7 +78,7 @@ export default {
     },
   ],
 
-  loggedInUserId: null,
+  loggedInUserId: 1,
 
   categories: [
     { id: 1, name: 'Web開発', selected: false },

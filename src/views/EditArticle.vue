@@ -6,13 +6,13 @@
 
     <div class="add-box">
       <router-link to="" @click.native="openCategory" class="add-category">
-        カテゴリを追加 
+        カテゴリを編集 
         <font-awesome-icon :icon="['fas', 'chevron-up']" v-show="categoriesOpen" />
         <font-awesome-icon :icon="['fas', 'chevron-down']" v-show="!categoriesOpen" />
       </router-link>
 
       <router-link to="" @click.native="openTag" class="add-tag">
-        タグを追加 
+        タグを編集 
         <font-awesome-icon :icon="['fas', 'chevron-up']" v-show="tagsOpen" />
         <font-awesome-icon :icon="['fas', 'chevron-down']" v-show="!tagsOpen" />
       </router-link>
@@ -27,7 +27,7 @@
     </div>
 
     <div class="button-box">
-      <Button :text="'投稿'" @clicked="addArticle" />
+      <Button :text="'編集'" @clicked="updateArticle" />
     </div>
 
   </div>
@@ -47,7 +47,7 @@ export default {
 
   data() {
     return {
-      selected: null,
+      article: this.$store.getters.getArticle(Number(this.$route.params['id'])),
       categories: this.$store.state.categories,
       tags: this.$store.state.tags,
       categoriesOpen: false,
@@ -59,11 +59,11 @@ export default {
 
   methods: {
 
-    addArticle() {
-      if(confirm('記事を投稿します。よろしいですか？')) {
-        this.$store.commit('addArticle',
+    updateArticle() {
+      if(confirm('記事を編集します。よろしいですか？')) {
+        this.$store.commit('updateArticle',
           {
-            id: this.$store.getters.maxArticleId + 1,
+            id: this.$route.params['id'],
             categoryId: this.categories.filter(x => x.selected === true).map(x => x.id),
             tagId: this.tags.filter(x => x.selected === true).map(x => x.id),
             userId: this.$store.state.loggedInUserId,
@@ -96,7 +96,10 @@ export default {
   },
 
   mounted: function() {
-    this.$store.commit('clear')
+    this.title = this.article.title
+    this.body = this.article.body
+    this.$store.commit('selectedTag', this.article.tagId)
+    this.$store.commit('selectedCategory', this.article.categoryId)
   }
 }
 </script>
