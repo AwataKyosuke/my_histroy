@@ -83,5 +83,11 @@ export default {
   getNowDate() {
     const date = new Date();
     return `${date.getFullYear()}/${('0' + (date.getMonth() + 1)).slice(-2)}/${('0' + date.getDate()).slice(-2)} ${('0' + date.getHours()).slice(-2)}:${('0' + date.getMinutes()).slice(-2)}`
+  },
+
+  getComments(state: any) {
+    return function (articleId: number) {
+      return state.comments.filter((x: { articleId: number }) => x.articleId === articleId)
+    }
   }
 }

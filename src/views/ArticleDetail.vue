@@ -5,13 +5,14 @@
     <SectionHeader :title="article.title" />
     <ArticleAttributeBox :article="article" />
     <div class="article-body-box">
-      <p>{{ article.body }}</p>
+      <div id="preview-field" v-html="convertMarkdown" />
     </div>
 
     <SectionHeader title="コメント" />
     <CommentViewBox v-for="comment in getComments(article.id)" :key="comment.id" :comment="comment" />
+    <p v-show="!hasComment" class="login-require">コメントはありません。</p>
 
-    <SubHeader :text="'コメントを投稿する'" class="comment-header" />
+    <SectionHeader title="コメントを投稿する" class="comment-header" />
     <CommentPostBox @clicked="clicked" v-show="loggedIn" />
     <p v-show="!loggedIn" class="login-require">コメントを投稿するにはログインする必要があります。</p>
 
@@ -21,10 +22,10 @@
 
 <script>
 import SectionHeader from '@/components/atoms/SectionHeader'
-import SubHeader from '@/components/atoms/SubHeader'
 import ArticleAttributeBox from '@/components/organsms/ArticleAttributeBox'
 import CommentViewBox from '@/components/organsms/CommentViewBox'
 import CommentPostBox from '@/components/organsms/CommentPostBox'
+import marked from 'marked';
 
 export default {
 
@@ -42,6 +43,14 @@ export default {
   computed: {
     loggedIn(){
       return this.$store.getters.loggedIn
+    },
+
+    hasComment(){
+      return this.$store.getters.getComments(this.article.id).length > 0
+    },
+
+    convertMarkdown: function() {
+      return marked(this.article.body);
     }
   },
 
@@ -56,23 +65,21 @@ export default {
     },
 
     clicked(value){
-      if(confirm('コメントを送信します。よろしいですか？')) {
-        const addObj = { 
-          id: this.newCommentId, 
-          articleId: this.article.id, 
-          userId: this.$store.state.loggedInUserId, 
-          body: value, 
-          date: this.$store.getters.getNowDate 
-        }
-        this.$store.commit('addComment', addObj)
-        this.newCommentId += 1
+      const addObj = { 
+        id: this.newCommentId, 
+        articleId: this.article.id, 
+        userId: this.$store.state.loggedInUserId, 
+        body: value, 
+        date: this.$store.getters.getNowDate 
       }
+      this.$store.commit('addComment', addObj)
+      this.newCommentId += 1
     },
   },
 
   components: {
     SectionHeader,
-    SubHeader,
+
     ArticleAttributeBox,
     CommentViewBox,
     CommentPostBox
@@ -84,8 +91,8 @@ export default {
 <style scoped>
 
 .article-body-box {
-  margin: 0 2vw;
-  font-size: 0.8vw;
+  margin: 0 2vw 3vh 0;
+  font-size: 1vw;
 }
 
 .login-require {
