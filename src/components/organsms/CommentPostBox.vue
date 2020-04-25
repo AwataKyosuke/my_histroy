@@ -1,10 +1,13 @@
 <template>
   <div class="comment-post-box">
     <div class="comment-post-box-body">
-      <textarea class="comment-post-box-input" v-model="inputComment"></textarea>
+      <textarea class="comment-post-box-input" v-model="inputComment" placeholder="コメントを入力してください"></textarea>
     </div>
     <div class="comment-post-box-footer">
-      <Button :text="'送信'" @clicked="submit" />
+      <p class="error">
+        {{ message }}
+      </p>
+      <Button :text="'送信'" @clicked="submit" class="submit-button" />
     </div>
   </div>
 </template>
@@ -14,9 +17,10 @@ import Button from '@/components/atoms/Button'
 
 export default {
 
-  dara(){
+  data(){
     return{
-      comment: ''
+      comment: '',
+      message: ''
     }
   },
 
@@ -37,7 +41,17 @@ export default {
 
   methods: {
     submit(){
-      this.$emit('clicked', this.comment)
+      if (this.comment.length === 0){
+        this.message = 'コメントを入力してください。'
+        return
+      }
+
+      this.message = ''
+
+      if(confirm('コメントを送信します。よろしいですか？')) {
+        this.$emit('clicked', this.comment)
+        this.comment = ''
+      }
     }
   }
 
@@ -73,7 +87,16 @@ export default {
 }
 
 .comment-post-box-footer {
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error {
+  padding: 0;
+  margin: 0;
+  font-size: 1vw;
+  color: red;
 }
 
 </style>

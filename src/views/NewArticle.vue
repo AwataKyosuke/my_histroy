@@ -25,12 +25,16 @@
 
     <div class="body-box">
       <div class="body-input-box" id="input-field-wrapper">
-        <textarea class="textarea" id="input-field" v-model="body" />
+        <textarea class="textarea" id="input-field" v-model="body" placeholder="マークダウン記法で入力可能です" />
       </div>
       <div class="body-preview" id="preview-field-wrapper">
         <div id="preview-field" v-html="convertMarkdown" />
       </div>
     </div>
+
+    <p class="error">
+      {{ message }}
+    </p>
 
     <div class="button-box">
       <Button :text="'投稿'" @clicked="addArticle" />
@@ -62,6 +66,7 @@ export default {
       tagsOpen: false,
       title: '',
       body: '',
+      message: ''
     }
   },
 
@@ -74,6 +79,18 @@ export default {
   methods: {
 
     addArticle() {
+      if (this.title.length === 0) {
+        this.message = 'タイトルを入力してください'
+        return
+      }
+
+      if (this.body.length === 0) {
+        this.message = '本文を入力してください'
+        return
+      }
+
+      this.message = ''
+
       if(confirm('記事を投稿します。よろしいですか？')) {
         this.$store.commit('addArticle',
           {
@@ -87,6 +104,8 @@ export default {
           }
         )
         this.$router.push({ name: 'Home' })
+        this.title = ''
+        this.body = ''
       }
     },
 
@@ -122,7 +141,7 @@ export default {
   display: flex;
   -webkit-flex-direction: row;
   flex-direction: row;
-  height: 70vh;
+  height: 80vh;
   margin: 0 0 0.5vh 0;
 }
 
@@ -183,6 +202,14 @@ a {
 .button-box {
   display: flex;
   justify-content: center;
+}
+
+.error {
+  text-align: center;
+  padding: 0;
+  margin: 0 0 0.5vh 0;
+  font-size: 1vw;
+  color: red;
 }
 
 </style>

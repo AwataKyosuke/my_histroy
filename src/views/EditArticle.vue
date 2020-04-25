@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <div class="title-box">
       <input type="text" class="title-input" placeholder="タイトル" v-model="title" />
     </div>
@@ -23,8 +24,17 @@
     <AddTag :tags="tags" v-show="tagsOpen" @selected="tagSelected($event)" />
 
     <div class="body-box">
-      <textarea type="text" class="body-input" placeholder="本文" v-model="body" ></textarea>
+      <div class="body-input-box" id="input-field-wrapper">
+        <textarea class="textarea" id="input-field" v-model="body" placeholder="マークダウン記法で入力可能です" />
+      </div>
+      <div class="body-preview" id="preview-field-wrapper">
+        <div id="preview-field" v-html="convertMarkdown" />
+      </div>
     </div>
+
+    <p class="error">
+      {{ message }}
+    </p>
 
     <div class="button-box">
       <Button :text="'編集'" @clicked="updateArticle" />
@@ -37,6 +47,7 @@
 import AddCategory from '@/components/organsms/AddCategory'
 import AddTag from '@/components/organsms/AddTag'
 import Button from '@/components/atoms/Button'
+import marked from 'marked';
 
 export default {
   components: {
@@ -54,25 +65,45 @@ export default {
       tagsOpen: false,
       title: '',
       body: '',
+      message: '',
+    }
+  },
+
+  computed: {
+    convertMarkdown: function() {
+      return marked(this.body);
     }
   },
 
   methods: {
 
     updateArticle() {
+      if (this.title.length === 0) {
+        this.message = 'タイトルを入力してください'
+        return
+      }
+
+      if (this.body.length === 0) {
+        this.message = '本文を入力してください'
+        return
+      }
+
+      this.message = ''
+
       if(confirm('記事を編集します。よろしいですか？')) {
-        this.$store.commit('updateArticle',
-          {
-            id: this.$route.params['id'],
-            categoryId: this.categories.filter(x => x.selected === true).map(x => x.id),
-            tagId: this.tags.filter(x => x.selected === true).map(x => x.id),
-            userId: this.$store.state.loggedInUserId,
-            title: this.title,
-            body: this.body,
-            date: this.$store.getters.getNowDate
-          }
-        )
+        const addObj = {
+          id: Number(this.$route.params['id']),
+          categoryId: this.categories.filter(x => x.selected === true).map(x => x.id),
+          tagId: this.tags.filter(x => x.selected === true).map(x => x.id),
+          userId: this.$store.state.loggedInUserId,
+          title: this.title,
+          body: this.body,
+          date: this.$store.getters.getNowDate
+        }
+        this.$store.commit('updateArticle', addObj)
         this.$router.push({ name: 'Home' })
+        this.title = ''
+        this.body = ''
       }
     },
 
@@ -106,22 +137,37 @@ export default {
 
 <style scoped>
 
-input {
+.body-box {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  height: 80vh;
+  margin: 0 0 0.5vh 0;
+}
+
+.body-input-box {
+  width: 50%;
+}
+
+.body-preview {
+  overflow-wrap: break-word;
+  overflow: scroll;
+  width: 50%;
+  border: solid 0.5px lightgray;
+}
+
+.title-box {
+  margin: 0 0 0.3vh 0;
+}
+
+.title-input {
   box-sizing: border-box;
   height: 3vh;
   font-size: 0.8vw;
   color: #333;
   border: solid 1px #ccc;
-}
-
-textarea {
-  box-sizing: border-box;
-  height: 100%;
   width: 100%;
-  font-size: 0.8vw;
-  color: #333;
-  border: solid 1px #ccc;
-  resize: none;
 }
 
 a {
@@ -132,38 +178,14 @@ a {
   margin: 0;
 }
 
-.tag-category-box {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 0 0.5% 0;
-}
-
-.tag-input {
-  width: 99%;
-  padding: 0;
-}
-
-.category-input {
+.textarea {
+  box-sizing: border-box;
+  font-size: 0.8vw;
   width: 100%;
-  padding: 0;
-}
-
-.title-box {
-  margin: 0 0 0.3vh 0;
-}
-
-.title-input {
-  width: 100%;
-}
-
-.body-box {
-  height: 80vh;
-  margin: 0 0 0.3vw 0;
-}
-
-.button-box {
-  display: flex;
-  justify-content: center;
+  height: 100%;
+  color: #333;
+  border: solid 1px #ccc;
+  resize: none;
 }
 
 .add-box {
@@ -176,6 +198,19 @@ a {
 
 .add-tag {
   margin: 0 1vw 0 0.2vw;
+}
+
+.button-box {
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  text-align: center;
+  padding: 0;
+  margin: 0 0 0.5vh 0;
+  font-size: 1vw;
+  color: red;
 }
 
 </style>

@@ -65,17 +65,15 @@ export default {
     },
 
     clicked(value){
-      if(confirm('コメントを送信します。よろしいですか？')) {
-        const addObj = { 
-          id: this.newCommentId, 
-          articleId: this.article.id, 
-          userId: this.$store.state.loggedInUserId, 
-          body: value, 
-          date: this.$store.getters.getNowDate 
-        }
-        this.$store.commit('addComment', addObj)
-        this.newCommentId += 1
+      const addObj = { 
+        id: this.newCommentId, 
+        articleId: this.article.id, 
+        userId: this.$store.state.loggedInUserId, 
+        body: value, 
+        date: this.$store.getters.getNowDate 
       }
+      this.$store.commit('addComment', addObj)
+      this.newCommentId += 1
     },
   },
 
