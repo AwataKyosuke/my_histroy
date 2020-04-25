@@ -91,7 +91,11 @@ export default {
     },
 
     loginUserArticle() {
-      return this.$route.params['id'] === this.$store.state.loggedInUserId
+      const article = this.$store.getters.getArticle(this.$route.params['id'])
+      if (article == null) {
+        return false
+      }
+      return article.userId === this.$store.state.loggedInUserId
     },
 
     getPageName(){
